@@ -1,0 +1,20 @@
+[common]
+7zip
+autohotkey_l
+firefox
+google-chrome-x64
+conemu
+virtualbox
+vagrant
+docker
+visualstudiocode
+git
+golang
+
+[home]
+googledrive
+dropbox
+visualstudio2015community
+setpoint #Logitech Utility
+
+[work]

@@ -1,11 +1,28 @@
+#set option as Args[0]
 Set-ExecutionPolicy RemoteSigned
-iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression
 
 cup -y all
-Get-Content "package_list.txt" |
-ForEach-Object{
-    if([string].IsNullOrEmpty($_)){
-        return;
+$opt = $Args[0]
+if([string]::IsNullOrEmpty($opt)){
+    $opt = "common"
+}
+
+$wants = $false
+Get-Content "package_list.txt" | ForEach-Object{
+    if([string]::IsNullOrEmpty($_)){
+        return
     }
-    choco install -y $_
+    $str = $_ -replace ' ','' -replace "#.*$",'' #remove spaces and comments.
+    
+    if($str -match "\[.*\]") 
+    {
+        #common and selected segments are only installed.
+        $wants = $str -match "(common|$opt)"
+        return
+    }
+    
+    if($wants){
+        choco install -y $str
+    }
 }
