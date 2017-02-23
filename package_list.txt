@@ -3,6 +3,7 @@
 autohotkey_l
 firefox
 google-chrome-x64
+GoogleJapaneseInput
 conemu
 virtualbox
 vagrant
@@ -18,3 +19,7 @@ visualstudio2015community
 setpoint #Logitech Utility
 
 [work]
+mattermost-desktop
+teraterm
+tortoisesvn
+visualsvn
