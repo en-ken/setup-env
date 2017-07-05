@@ -19,7 +19,14 @@ visualstudio2015community
 setpoint #Logitech Utility
 
 [work]
-mattermost-desktop
-teraterm
+cyberduck
 tortoisesvn
-visualsvn
+
+[work_aws]
+cyberduck
+tortoisesvn
+tortoisegit
+openvpn
+awscli
+jdk8
+thrift
