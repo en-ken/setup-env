@@ -4,18 +4,20 @@ autohotkey_l
 firefox
 google-chrome-x64
 GoogleJapaneseInput
-conemu
 virtualbox
 vagrant
 docker
 visualstudiocode
 git
 golang
+nodejs
+cmder
+vcxsrv
 
 [home]
 googledrive
 dropbox
-visualstudio2015community
+visualstudio2017enterprise
 setpoint #Logitech Utility
 
 [work]
@@ -30,3 +32,6 @@ openvpn
 awscli
 jdk8
 thrift
+intellijidea-community
+PyCharm-community
+python3
