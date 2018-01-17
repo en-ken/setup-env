@@ -25,8 +25,18 @@
 ~*LAlt::
 ~*RAlt::
     Return ;パススルー
-LAlt up::SetIME(0)
-RAlt up::SetIME(1)
+LAlt up::
+{
+    SetIME(0)
+    Send,{LAlt}
+    Return
+}
+RAlt up::
+{
+    SetIME(1)
+    Send,{RAlt}
+    Return
+}
 
 ;LAlt up::send,{vk1Dsc07B} ;無変換
 ;RAlt up::send,{vk1Csc079} ;変換
