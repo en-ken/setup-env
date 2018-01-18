@@ -48,8 +48,8 @@ set -x GTK_IM_MODULE fcitx
 set -x XMODIFIERS "@im=fcitx"
 set -x QT_IM_MODULE fcitx
 set -x DefaultIMModule fcitx
-set -x NO_AT_BRIDGE 1
-set -x PATH $HOME/.nodebrew/current/bin $HOME/.pyenv/bin $PATH
+set -x NO_AT_BRIDGE 2
+set -x PATH \$HOME/.nodebrew/current/bin \$HOME/.pyenv/bin \$PATH
 source (pyenv init - | psub)
 EOT
 cat << EOT >> ~/.config/fish/functions/select-gnome-theme.fish 
@@ -76,7 +76,7 @@ function wait-until-close
   while true
     sleep 10
     set res (is-alive)
-    if test -z "$res"
+    if test -z "\$res"
       break
     end
   end
