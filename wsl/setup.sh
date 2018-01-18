@@ -6,6 +6,7 @@ sudo apt-add-repository -y ppa:fish-shell/release-2 #for fish
 sudo apt update && sudo apt upgrade -y
 
 ##standard package
+sudo apt install -y language-pack-ja
 sudo apt install -y git gcc make
 sudo apt install -y libssl-dev libbz2-dev libreadline-dev libsqlite3-dev zlib1g-dev
 
@@ -22,6 +23,7 @@ sudo fc-cache -fv
 sudo apt install -y gnome-terminal
 dbus-uuidgen |sudo tee /etc/machine-id
 sudo apt install -y fcitx fcitx-mozc
+sudo apt install -y dconf-cli
 
 
 ##fish shell
@@ -42,10 +44,23 @@ function X86
     echo '(X86)'
 end
 set -x DISPLAY localhost:0.0
+set -x GTK_IM_MODULE fcitx
+set -x XMODIFIERS "@im=fcitx"
+set -x QT_IM_MODULE fcitx
+set -x DefaultIMModule fcitx
+set -x NO_AT_BRIDGE 1
 set -x PATH $HOME/.nodebrew/current/bin $HOME/.pyenv/bin $PATH
 source (pyenv init - | psub)
+fcitx-autostart > /dev/null 2>&1
 EOT
-source ~/.config/fish/config.fish
+cat << EOT >> ~/.config/fish/functions/select-gnome-theme.fish 
+function select-gnome-theme
+  wget -O gogh https://git.io/vQgMr
+  chmod +x gogh
+  ./gogh
+  rm gogh
+end
+EOT
 
 ##configure under fish
 fish -c "fisher omf/theme-l"
