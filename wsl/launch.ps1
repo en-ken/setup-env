@@ -1,1 +1,1 @@
-ubuntu.exe -c "fish -c 'cd;gnome-terminal'"
+ubuntu.exe -c "fish -c 'cd;fcitx-autostart > /dev/null 2>&1;gnome-terminal'"
