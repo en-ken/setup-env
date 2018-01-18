@@ -60,6 +60,28 @@ function select-gnome-theme
   rm gogh
 end
 EOT
+cat << EOT >> ~/.config/fish/functions/exec-gnome-terminal.fish
+function exec-gnome-terminal
+  cd
+  fcitx-autostart > /dev/null 2>&1
+  gnome-terminal
+  wait-until-close
+end
+
+function is-alive
+  ps --no-heading -C gnome-terminal-server
+end
+
+function wait-until-close
+  while true
+    sleep 10
+    set res (is-alive)
+    if test -z "$res"
+      break
+    end
+  end
+end
+EOT
 
 ##configure under fish
 fish -c "fisher omf/theme-l"
