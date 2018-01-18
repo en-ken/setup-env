@@ -82,6 +82,7 @@ function wait-until-close
   end
 end
 EOT
+echo "fish" >> ~/.bashrc
 
 ##configure under fish
 fish -c "fisher omf/theme-l"
