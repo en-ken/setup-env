@@ -10,22 +10,22 @@ docker
 visualstudiocode
 git
 golang
-nodejs
-cmder
+
+colortool
 vcxsrv
+wox
+wsltty
 
 [home]
 googledrive
 dropbox
 visualstudio2017enterprise
-setpoint #Logitech Utility
+intellijidea-community
 
 [work]
-cyberduck
 tortoisesvn
 
 [work_aws]
-cyberduck
 tortoisesvn
 tortoisegit
 openvpn
@@ -35,3 +35,5 @@ thrift
 intellijidea-community
 PyCharm-community
 python3
+nodejs
+rocketchat
