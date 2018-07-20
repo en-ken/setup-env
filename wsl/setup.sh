@@ -30,10 +30,9 @@ sudo apt install -y dconf-cli
 sudo apt -y install fish
 fish -c ls #create config.fish
 
-##download fisherman,nodebrew,pyenv
+##download fisherman,anyenv
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
-curl -L git.io/nodebrew | perl - setup
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+git clone https://github.com/riywo/anyenv ~/.anyenv
 
 ##set env
 cat << EOT >> ~/.config/fish/config.fish
@@ -49,8 +48,8 @@ set -x XMODIFIERS "@im=fcitx"
 set -x QT_IM_MODULE fcitx
 set -x DefaultIMModule fcitx
 set -x NO_AT_BRIDGE 2
-set -x PATH \$HOME/.nodebrew/current/bin \$HOME/.pyenv/bin \$PATH
-source (pyenv init - | psub)
+set -x PATH \$HOME/.anyenv/bin \$PATH
+eval (anyenv init - | source)
 EOT
 cat << EOT >> ~/.config/fish/functions/select-gnome-theme.fish 
 function select-gnome-theme
@@ -84,11 +83,12 @@ end
 EOT
 
 ##configure under fish
-fish -c "fisher omf/theme-l"
 under_fish=$(cat << EOS
-nodebrew install-binary stable
-nodebrew use stable
-pyenv install 3.6.4
+fisher omf/theme-l
+fisher edc/bass
+anyenv install pyenv
+anyenv install ndenv
+exec $SHELL -l
 EOS
 )
 fish -c $under_fish
