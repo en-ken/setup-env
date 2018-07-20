@@ -1,1 +1,1 @@
-ubuntu.exe -c "fish -c exec-gnome-terminal"
+wsl fish -c exec-gnome-terminal

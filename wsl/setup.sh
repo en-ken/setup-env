@@ -82,7 +82,6 @@ function wait-until-close
   end
 end
 EOT
-echo "fish" >> ~/.bashrc
 
 ##configure under fish
 fish -c "fisher omf/theme-l"
@@ -93,6 +92,7 @@ pyenv install 3.6.4
 EOS
 )
 fish -c $under_fish
+chsh -s $(which fish)
 
 ##disable beep
 echo "set bell-style none" >> ~/.inputrc
