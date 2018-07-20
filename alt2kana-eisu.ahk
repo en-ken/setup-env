@@ -22,22 +22,21 @@
             ,Int, IsOn)
 } 
 
-~*LAlt::
-~*RAlt::
-    Return ;パススルー
+*~LAlt::Send {Blind}{vk07}
+*~RAlt::Send {Blind}{vk07}
 LAlt up::
 {
+  if(A_PriorHotkey == "*~LAlt")
+  {
     SetIME(0)
-    Send,{LAlt}
-    Return
+  }
+  Return
 }
 RAlt up::
 {
+  if(A_PriorHotkey == "*~RAlt")
+  {
     SetIME(1)
-    Send,{RAlt}
-    Return
+  }
+  Return
 }
-
-;LAlt up::send,{vk1Dsc07B} ;無変換
-;RAlt up::send,{vk1Csc079} ;変換
-;IMEで無変換をIMEオフ、変換をMIEオンに割り当てる。
