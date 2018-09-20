@@ -4,17 +4,12 @@ autohotkey_l
 firefox
 google-chrome-x64
 GoogleJapaneseInput
-virtualbox
-vagrant
-docker
 visualstudiocode
 git
 golang
-
 colortool
 vcxsrv
 wox
-wsltty
 
 [home]
 googledrive
@@ -24,6 +19,7 @@ intellijidea-community
 
 [work]
 tortoisesvn
+cyberduck
 
 [work_aws]
 tortoisesvn
@@ -33,7 +29,7 @@ awscli
 jdk8
 thrift
 intellijidea-community
-PyCharm-community
 python3
 nodejs
+cyberduck
 rocketchat
