@@ -1,0 +1,9 @@
+[alias]
+	c = commit
+	st = status
+	b = branch
+	r = rebase
+	co = checkout
+[user]
+	email = xxx@gmail.com
+	name = en-ken
