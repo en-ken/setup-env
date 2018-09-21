@@ -7,3 +7,5 @@
 [user]
 	email = xxx@gmail.com
 	name = en-ken
+[core]
+	editor = vim
