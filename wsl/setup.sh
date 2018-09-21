@@ -1,56 +1,33 @@
 #!/bin/sh
-##package update
-sudo sed -i'~' -E "s#http://(..\.)?(archive|security)\.ubuntu\.com/ubuntu#http://ftp.jaist.ac.jp/pub/Linux/ubuntu#g" /etc/apt/sources.list
+echo == Add ppa repository ==
 sudo apt-add-repository -y ppa:git-core/ppa
-sudo apt-add-repository -y ppa:fish-shell/release-2 #for fish
 sudo apt update && sudo apt upgrade -y
 
-##standard package
-sudo apt install -y language-pack-ja
-sudo apt install -y git gcc make
-sudo apt install -y libssl-dev libbz2-dev libreadline-dev libsqlite3-dev zlib1g-dev
-
-##enable gui
-sudo apt -y install x11-apps
-echo "export DISPLAY=localhost:0.0" >> ~/.bashrc
-
-##change fonts
+echo == Change fonts ==
 sudo ln -s /mnt/c/Windows/Fonts /usr/share/fonts/Windows
 sudo apt install -y fontconfig
 sudo fc-cache -fv
 
-##terminal
-sudo apt install -y gnome-terminal
+echo == Xorgs ==
+sudo apt install -y x11-apps libxss1 libasound2
+
+echo == IME ==
 dbus-uuidgen |sudo tee /etc/machine-id
+sudo apt install -y dbus-x11 dconf-cli
 sudo apt install -y fcitx fcitx-mozc
-sudo apt install -y dconf-cli
 
-
-##fish shell
-sudo apt -y install fish
-fish -c ls #create config.fish
-
-##download fisherman,anyenv
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
-git clone https://github.com/riywo/anyenv ~/.anyenv
-
-##set env
+echo == Set environments ==
 cat << EOT >> ~/.config/fish/config.fish
-function x86
-    echo '(x86)'
-end
-function X86
-    echo '(X86)'
-end
 set -x DISPLAY localhost:0.0
+set -x NO_AT_BRIDGE 2
 set -x GTK_IM_MODULE fcitx
 set -x XMODIFIERS "@im=fcitx"
 set -x QT_IM_MODULE fcitx
 set -x DefaultIMModule fcitx
-set -x NO_AT_BRIDGE 2
-set -x PATH \$HOME/.anyenv/bin \$PATH
-eval (anyenv init - | source)
+activate-ime
 EOT
+
+
 cat << EOT >> ~/.config/fish/functions/select-gnome-theme.fish 
 function select-gnome-theme
   wget -O gogh https://git.io/vQgMr
@@ -59,40 +36,10 @@ function select-gnome-theme
   rm gogh
 end
 EOT
-cat << EOT >> ~/.config/fish/functions/exec-gnome-terminal.fish
-function exec-gnome-terminal
-  cd
+
+cat << EOT >> ~/.config/fish/functions/activate-ime.fish
+function activate-ime
   fcitx-autostart > /dev/null 2>&1
-  gnome-terminal
-  wait-until-close
-end
-
-function is-alive
-  ps --no-heading -C gnome-terminal-server
-end
-
-function wait-until-close
-  while true
-    sleep 10
-    set res (is-alive)
-    if test -z "\$res"
-      break
-    end
-  end
 end
 EOT
 
-##configure under fish
-under_fish=$(cat << EOS
-fisher omf/theme-l
-fisher edc/bass
-anyenv install pyenv
-anyenv install ndenv
-exec $SHELL -l
-EOS
-)
-fish -c $under_fish
-chsh -s $(which fish)
-
-##disable beep
-echo "set bell-style none" >> ~/.inputrc
