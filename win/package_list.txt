@@ -12,7 +12,6 @@ vcxsrv
 wox
 
 [home]
-googledrive
 dropbox
 visualstudio2017enterprise
 intellijidea-community
