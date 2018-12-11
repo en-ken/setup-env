@@ -4,12 +4,12 @@ echo ===INSTALL NECESSARY PACKAGES===
 export CC=/usr/bin/cc
 export CXX=/usr/bin/c++
 sudo apt install -y libsecret-1-dev git python2.7 clang make libx11-dev libxkbfile-dev fakeroot rpm
-sudo install -y jq
+sudo apt install -y jq
 npm install -g yarn
 
 echo ===CLONE VSCODE===
+git clone https://github.com/Microsoft/vscode.git /tmp/vscode --depth=1
 mkdir /tmp/vscode; cd $_
-git clone https://github.com/Microsoft/vscode.git --depth=1
 
 echo ===SED FOR AARCH64===
 sed -i 's|require("gulp-sourcemaps");|{write:()=>gulpUtil.noop(),init:()=>gulpUtil.noop()};|' build/lib/optimize.js
@@ -36,4 +36,4 @@ gallery=$(cat << EOT
 EOT
 )
 jsonPath='/usr/share/code-oss/resources/app/product.json'
-cat ${jsonPath} | jq ". | .+ ${gallery}" >& ${jsonPath}
+cat ${jsonPath} | jq ". | .+ ${gallery}" | sudo tee {jsonPath}

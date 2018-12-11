@@ -26,7 +26,6 @@ code \
 --install-extension shardulm94.trailing-spaces \
 --install-extension eg2.tslint \
 --install-extension vscodevim.vim \
---install-extension ibm.output-colorizer \
 --install-extension shardulm94.trailing-spaces \
 --install-extension chrmarti.regex \
 --install-extension eamodio.gitlens
