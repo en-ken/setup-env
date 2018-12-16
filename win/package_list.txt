@@ -13,8 +13,7 @@ wox
 
 [home]
 dropbox
-visualstudio2017enterprise
-intellijidea-community
+google-backup-and-sync
 etcher
 tortoisegit
 
@@ -22,14 +21,13 @@ tortoisegit
 tortoisesvn
 cyberduck
 
-[work_aws]
+[work.aws]
 tortoisesvn
 tortoisegit
 openvpn
 awscli
 jdk8
 thrift
-intellijidea-community
 python3
 nodejs
 cyberduck

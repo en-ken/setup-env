@@ -1,16 +1,22 @@
 #Set option as Args[0]
+$opt = $Args[0]
+if ([string]::IsNullOrEmpty($opt)) {
+    Write-Output "argument is necessary."
+    exit
+}
 
-#Install chocolatey
-Set-ExecutionPolicy RemoteSigned
-Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression
-cup -y all
+try{
+    #check if chocolatey is installed
+    choco
+}catch{
+    #Install chocolatey
+    Set-ExecutionPolicy RemoteSigned
+    Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression
+    cup -y all
+}
 
 #Read package_list
 $list = "package_list.txt"
-$opt = $Args[0]
-if ([string]::IsNullOrEmpty($opt)) {
-    Write-Output "need args"
-}
 
 #Install packages
 $isTarget = $false
