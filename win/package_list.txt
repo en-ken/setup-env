@@ -10,6 +10,7 @@ golang
 colortool
 vcxsrv
 wox
+hyper
 
 [home]
 dropbox
