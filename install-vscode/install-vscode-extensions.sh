@@ -1,24 +1,30 @@
-echo === INSTALL EXTENSION ===
-code \
---install-extension shakram02.bash-beautify \
---install-extension coenraads.bracket-pair-colorizer \
---install-extension peterjausovec.vscode-docker \
---install-extension dbaeumer.vscode-eslint \
---install-extension grapecity.gc-excelviewer \
---install-extension eamodio.gitlens \
---install-extension ms-ceintl.vscode-language-pack-ja \
---install-extension orta.vscode-jest \
---install-extension shd101wyy.markdown-preview-enhanced \
---install-extension davidanson.vscode-markdownlint \
---install-extension ibm.output-colorizer \
---install-extension jebbs.plantuml \
---install-extension ms-python.python \
---install-extension chrmarti.regex \
---install-extension mimarec.swagger-doc-viewer \
---install-extension shuworks.vscode-table-formatter \
---install-extension shardulm94.trailing-spaces \
---install-extension eg2.tslint \
---install-extension vscodevim.vim \
---install-extension shardulm94.trailing-spaces \
---install-extension chrmarti.regex \
---install-extension eamodio.gitlens
+#!/bin/bash
+echo == install vs code extension ==
+pkglist=(
+shakram02.bash-beautify \
+coenraads.bracket-pair-colorizer \
+peterjausovec.vscode-docker \
+dbaeumer.vscode-eslint \
+grapecity.gc-excelviewer \
+eamodio.gitlens \
+ms-ceintl.vscode-language-pack-ja \
+orta.vscode-jest \
+shd101wyy.markdown-preview-enhanced \
+davidanson.vscode-markdownlint \
+ibm.output-colorizer \
+jebbs.plantuml \
+ms-python.python \
+chrmarti.regex \
+mimarec.swagger-doc-viewer \
+shuworks.vscode-table-formatter \
+shardulm94.trailing-spaces \
+eg2.tslint \
+vscodevim.vim \
+shardulm94.trailing-spaces \
+chrmarti.regex \
+eamodio.gitlens
+)
+
+for i in ${pkglist[@]}; do
+    code --install-extension $i
+done
