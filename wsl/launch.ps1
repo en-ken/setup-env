@@ -1,1 +1,0 @@
-wsl fish -c exec-gnome-terminal
