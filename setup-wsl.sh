@@ -1,22 +1,16 @@
-#!/bin/sh
-echo == Add ppa repository ==
-sudo apt-add-repository -y ppa:git-core/ppa
-sudo apt update && sudo apt upgrade -y
+#!/bin/bash
+echo == common installer ==
+./setup.sh
 
-echo == Change fonts ==
-sudo ln -s /mnt/c/Windows/Fonts /usr/share/fonts/Windows
-sudo apt install -y fontconfig
-sudo fc-cache -fv
-
-echo == Xorgs ==
+echo == xorgs ==
 sudo apt install -y x11-apps libxss1 libasound2
 
-echo == IME ==
+echo == ime ==
 dbus-uuidgen |sudo tee /etc/machine-id
 sudo apt install -y dbus-x11 dconf-cli
-sudo apt install -y fcitx fcitx-mozc
+sudo apt install -y fcitx-mozc
 
-echo == Set environments ==
+echo == environment variables ==
 cat << EOT >> ~/.config/fish/config.fish
 set -x DISPLAY localhost:0.0
 set -x NO_AT_BRIDGE 2
