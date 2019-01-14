@@ -9,8 +9,8 @@ echo == install theme ==
 shell=$(cat <<EOS
 cd /boot/efi/EFI/refind/
 mkdir -p themes
-git clone https://github.com/EvanPurkhiser/rEFInd-minimal themes/rEFInd-minimal
-echo "include themes/refind-minimal/theme.conf" >> refind.conf
+git clone https://github.com/andersfischernielsen/rEFInd-minimal-black themes/rEFInd-minimal-black
+echo "include themes/rEFInd-minimal-black/theme.conf" >> refind.conf
 EOS
 )
 
