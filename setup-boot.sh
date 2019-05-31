@@ -14,4 +14,4 @@ echo "include themes/rEFInd-minimal-black/theme.conf" >> refind.conf
 EOS
 )
 
-bash -c ${shell}
+sudo bash -c ${shell}

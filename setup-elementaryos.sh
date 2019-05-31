@@ -32,8 +32,10 @@ sudo apt update
 sudo apt install -y albert
 
 echo == hyper ==
-curl -L -o /tmp/hyper.deb https://releases.hyper.is/download/deb
-sudo dpkg -i /tmp/hyper.deb
+./install-latest.sh zeit hyper
+
+echo == boostnote ==
+./install-latest.sh BoostIO boost-releases
 
 echo == power management ==
 sudo apt-get install -y tlp tlp-rdw
