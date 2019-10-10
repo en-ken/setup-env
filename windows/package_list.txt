@@ -4,32 +4,18 @@ autohotkey_l
 firefox
 google-chrome-x64
 GoogleJapaneseInput
-visualstudiocode
+vscode
 git
-golang
 colortool
 vcxsrv
 wox
 hyper
+tortoisegit
 
 [home]
 dropbox
 google-backup-and-sync
 etcher
-tortoisegit
+itunes
 
 [work]
-tortoisesvn
-cyberduck
-
-[work.aws]
-tortoisesvn
-tortoisegit
-openvpn
-awscli
-jdk8
-thrift
-python3
-nodejs
-cyberduck
-rocketchat
