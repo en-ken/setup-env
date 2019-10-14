@@ -10,11 +10,9 @@ echo == git ==
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt update
 sudo apt install -y git
-cp "${PWD}/../config/.gitconfig" ~/
 
 echo == vim ==
 sudo apt install -y vim
-cp "${PWD}/../config/.vimrc" ~/
 
 echo == standard package ==
 sudo apt install -y language-pack-ja

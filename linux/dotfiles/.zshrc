@@ -14,10 +14,11 @@ zplug 'sindresorhus/pure'
 zplug 'mollifier/anyframe'
 zplug 'mollifier/cd-gitroot'
 
-zplug 'b4b4r07/enhancd', use:enhancd.sh
-
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
 zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
+
+zplug 'b4b4r07/enhancd', use:enhancd.sh
+zplug "b4b4r07/gist", as:command, from:gh-r
 
 zplug 'motemen/ghq', as:command, from:gh-r
 
@@ -32,4 +33,9 @@ fi
 zplug load --verbose
 
 # alias
-
+alias lst='ls -ltr --color=auto'
+alias l='ls -ltr --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
+alias cp='cp -i'
+alias rm='rm -i'
