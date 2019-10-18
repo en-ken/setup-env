@@ -17,6 +17,8 @@ zplug 'mollifier/cd-gitroot'
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
 zplug 'junegunn/fzf', as:command, use:bin/fzf-tmux
 
+zplug 'rupa/z', use:'*.sh'
+
 zplug 'b4b4r07/enhancd', use:enhancd.sh
 zplug "b4b4r07/gist", as:command, from:gh-r
 
@@ -31,6 +33,10 @@ if ! zplug check --verbose; then
 fi
 
 zplug load --verbose
+
+# path
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # alias
 alias lst='ls -ltr --color=auto'
