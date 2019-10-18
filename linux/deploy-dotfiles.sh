@@ -1,7 +1,7 @@
 #!/bin/bash
 pushd "$(dirname $0)/dotfiles"
 
-DOTFILES=$(ls -a .??*)
+DOTFILES=$(ls -A)
 PWD=$(pwd)
 
 for file in ${DOTFILES[@]}
