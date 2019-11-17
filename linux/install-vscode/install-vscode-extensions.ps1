@@ -1,9 +1,8 @@
-echo === INSTALL EXTENSION ===
+echo === INSTALL COMMON EXTENSIONS ===
 code `
 --install-extension shakram02.bash-beautify `
 --install-extension coenraads.bracket-pair-colorizer `
---install-extension peterjausovec.vscode-docker `
---install-extension dbaeumer.vscode-eslint `
+--install-extension ms-azuretools.vscode-docker `
 --install-extension grapecity.gc-excelviewer `
 --install-extension eamodio.gitlens `
 --install-extension ms-ceintl.vscode-language-pack-ja `
@@ -12,13 +11,14 @@ code `
 --install-extension davidanson.vscode-markdownlint `
 --install-extension ibm.output-colorizer `
 --install-extension jebbs.plantuml `
---install-extension ms-python.python `
 --install-extension chrmarti.regex `
---install-extension mimarec.swagger-doc-viewer `
 --install-extension shuworks.vscode-table-formatter `
 --install-extension shardulm94.trailing-spaces `
---install-extension eg2.tslint `
 --install-extension vscodevim.vim `
---install-extension shardulm94.trailing-spaces `
---install-extension chrmarti.regex `
---install-extension eamodio.gitlens
+--install-extension ms-vscode-remote.remote-containers `
+--install-extension ms-vscode-remote.remote-ssh `
+--install-extension ms-vscode-remote.remote-ssh-edit `
+--install-extension ms-vscode-remote.remote-ssh-explorer `
+--install-extension ms-vscode-remote.remote-wsl ` 
+--install-extension ms-vscode-remote.vscode-remote-extensionpack
+
