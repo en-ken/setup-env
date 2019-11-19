@@ -14,8 +14,6 @@ function get_latest_download_path(){
     echo "https://github.com${path}"
 }
 
-echo == for apt-add-repository ==
-sudo apt install -y software-properties-common
 
 echo == ime ==
 sudo apt install -y fcitx-mozc
@@ -41,7 +39,7 @@ echo == boostnote ==
 utils/install-latest.sh BoostIO boost-releases
 
 echo == power management ==
-sudo apt-get install -y tlp tlp-rdw
+sudo apt install -y tlp tlp-rdw
 sudo systemctl start tlp
 sudo systemctl enable tlp
 
@@ -49,7 +47,7 @@ echo == look and feel ==
 sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks
 sudo apt update
 sudo apt install -y elementary-tweaks
-sudo apt-get install -y conky
+sudo apt install -y conky
 
 echo == font ==
 CICA_PATH=$(get_latest_download_path "miiton/Cica" "zip")
