@@ -1,19 +1,20 @@
 #!/bin/bash
+PWD=$(dirname $0)
+
 echo == common installer ==
 #sudo sed -i -E 's/juno/bionic/g' /etc/apt/sources.list
 #sudo sed -i -E 's/juno/bionic/g' etc/apt/sources.list.d/appcenter.list
 #sudo sed -i -E 's/juno/bionic/g' etc/apt/sources.list.d/elementary.list
 #sudo sed -i -E 's/juno/bionic/g' etc/apt/sources.list.d/patches.list
-./install-common.sh
+${PWD}/setup-base-ubuntu.sh
 
 echo == define function ==
-# $1: github relative path such as "en-ken/setup-env" 
-# $2: file extension such as zip, tar.gz, etc... 
-function get_latest_download_path(){ 
-    local path=$(curl -L "https://github.com/$1/releases/latest" | grep -o "href=\".*/releases/download/.*\.$2\"" | sed 's/href="\(.*\)"/\1/g') 
+# $1: github relative path such as "en-ken/setup-env"
+# $2: file extension such as zip, tar.gz, etc...
+function get_latest_download_path(){
+    local path=$(curl -L "https://github.com/$1/releases/latest" | grep -o "href=\".*/releases/download/.*\.$2\"" | sed 's/href="\(.*\)"/\1/g')
     echo "https://github.com${path}"
 }
-
 
 echo == ime ==
 sudo apt install -y fcitx-mozc
@@ -30,13 +31,13 @@ sudo apt update
 sudo apt install -y albert
 
 echo == docker ==
-./install-docker.sh
+${PWD}/install-docker.sh
 
 echo == hyper ==
-utils/install-latest.sh zeit hyper
+${PWD}/utils/install-latest.sh zeit hyper
 
 echo == boostnote ==
-utils/install-latest.sh BoostIO boost-releases
+${PWD}/utils/install-latest.sh BoostIO boost-releases
 
 echo == power management ==
 sudo apt install -y tlp tlp-rdw

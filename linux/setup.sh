@@ -1,8 +1,9 @@
 #!/bin/bash
 
 ./deploy-dotfiles.sh
-./install-common.sh
 is_wsl=$(uname -r | grep 'Microsoft')
-if [ ! $is_wsl ];then
+if [ $is_wsl ];then
+    ./install-common.sh
+else
     ./setup-elementaryos.sh
 fi
