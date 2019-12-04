@@ -1,3 +1,7 @@
+set encoding=utf-8
+set fileencodings=utf-8
+set fileformats=unix,dos,mac
+
 set ignorecase
 set smartcase
 set incsearch
@@ -17,7 +21,7 @@ set title
 set number
 set ruler
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set wrap
 set laststatus=2
 set showcmd
