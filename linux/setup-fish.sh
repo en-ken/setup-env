@@ -2,16 +2,12 @@
 PWD=$(dirname $0)
 
 is_ubuntu() {
-    if [ -e /etc/lsb-release ]; then
-        return 0
-    else
-        return 1
-    fi
+    [ -e /etc/lsb-release ]
 }
 
 
 echo == fish shell ==
-if [ is_ubuntu ]; then
+if is_ubuntu; then
     sudo apt-add-repository -y ppa:fish-shell/release-3
 else
     echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_9.0/ /' >     /etc/apt/sources.list.d/shells:fish:release:3.list
@@ -23,30 +19,22 @@ sudo apt install -y fish
 fish -c ls #create config.fish
 
 
-echo == execute fish ==
-FISH_SCRIPT=`cat << EOS
 echo == install fisher ==
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
-fisher add edc/bass
+echo == bass ==
+fish -c 'fisher add edc/bass'
 
 echo == theme ==
 #fisher add omf/theme-bobthefish
-fisher add rafaelrinaldi/pure
-
-go get github.com/motemen/ghq
+fish -c 'fisher add rafaelrinaldi/pure'
 
 echo == fzf ==
 sudo apt install -y fzf
-fisher add 'jethrokuan/fzf'
+fish -c 'fisher add jethrokuan/fzf'
 
 echo == z ==
-fisher add 'jethrokuan/z'
+fish -c 'fisher add jethrokuan/z'
 
 echo == ghq ==
-go get github.com/motemen/ghq
-fisher add decors/fish-ghq
-EOS
-`
-
-fish -c ${FISH_SCRIPT}
+fish -c 'go get github.com/motemen/ghq; fisher add decors/fish-ghq'
