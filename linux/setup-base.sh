@@ -35,3 +35,6 @@ is_ubuntu && \
 sudo add-apt-repository ppa:longsleep/golang-backports && \
 sudo apt update
 sudo apt install -y golang-go
+if [ -e ~/go ]; then
+    mkdir ~/go
+fi
