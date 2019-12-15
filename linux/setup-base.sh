@@ -2,11 +2,7 @@
 
 
 is_ubuntu() {
-    if [ -e /etc/lsb-release ]; then
-        return 0
-    else
-        return 1
-    fi
+    [ -e /etc/lsb-release ]
 }
 
 echo == add-apt-repository ==
