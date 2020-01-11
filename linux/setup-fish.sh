@@ -6,7 +6,7 @@ is_ubuntu() {
 }
 
 
-echo == fish shell ==
+echo ==== install fish ==
 if is_ubuntu; then
     sudo apt-add-repository -y ppa:fish-shell/release-3
 else
@@ -16,25 +16,25 @@ else
 fi
 sudo apt update
 sudo apt install -y fish
-fish -c ls #create config.fish
+echo 'exec fish' >> ~/.bashrc
 
-
-echo == install fisher ==
+echo ==== install fisher ==
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+fish -c 'fisher'
+#exec $SHELL -l
 
-echo == bass ==
+echo ===== bass ==
 fish -c 'fisher add edc/bass'
 
-echo == theme ==
+echo ===== theme ==
 #fisher add omf/theme-bobthefish
 fish -c 'fisher add rafaelrinaldi/pure'
 
-echo == fzf ==
-sudo apt install -y fzf
+echo ===== fzf ==
 fish -c 'fisher add jethrokuan/fzf'
 
-echo == z ==
+echo ===== z ==
 fish -c 'fisher add jethrokuan/z'
 
-echo == ghq ==
-fish -c 'go get github.com/motemen/ghq; fisher add decors/fish-ghq'
+echo ===== ghq ==
+fish -c 'fisher add decors/fish-ghq'

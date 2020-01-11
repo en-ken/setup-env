@@ -1,9 +1,10 @@
 #!/bin/bash
+PWD=$(dirname $0)
 
-./deploy-dotfiles.sh
+${PWD}/deploy-dotfiles.sh
 is_wsl=$(uname -r | grep 'Microsoft')
 if [ $is_wsl ];then
-    ./install-common.sh
+    ${PWD}/setup-base-ubuntu.sh
 else
-    ./setup-elementaryos.sh
+    ${PWD}/setup-elementaryos.sh
 fi

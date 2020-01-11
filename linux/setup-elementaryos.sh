@@ -8,7 +8,6 @@ echo == common installer ==
 #sudo sed -i -E 's/juno/bionic/g' etc/apt/sources.list.d/patches.list
 ${PWD}/setup-base-ubuntu.sh
 
-echo == define function ==
 # $1: github relative path such as "en-ken/setup-env"
 # $2: file extension such as zip, tar.gz, etc...
 function get_latest_download_path(){
