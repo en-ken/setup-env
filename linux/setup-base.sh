@@ -22,6 +22,9 @@ sudo add-apt-repository ppa:jonathonf/vim && \
 sudo apt update
 sudo apt install -y vim
 
+echo == tmux ==
+sudo apt install -y tmux
+
 echo == standard package ==
 sudo apt install -y gcc make
 sudo apt install -y libssl-dev libbz2-dev libreadline-dev libsqlite3-dev zlib1g-dev automake autoconf libncurses-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev gnupg
