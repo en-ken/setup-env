@@ -17,5 +17,6 @@ dropbox
 google-backup-and-sync
 etcher
 itunes
+notion
 
 [work]
