@@ -21,20 +21,20 @@ echo 'exec fish' >> ~/.bashrc
 echo ==== install fisher ==
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fish -c 'fisher'
-#exec $SHELL -l
+exec $SHELL -l
 
 echo ===== bass ==
-fish -c 'fisher add edc/bass'
+fish -c 'fisher install edc/bass'
 
 echo ===== theme ==
 #fisher add omf/theme-bobthefish
-fish -c 'fisher add rafaelrinaldi/pure'
+fish -c 'fisher install rafaelrinaldi/pure'
 
 echo ===== fzf ==
-fish -c 'fisher add jethrokuan/fzf'
+fish -c 'fisher install jethrokuan/fzf'
 
 echo ===== z ==
-fish -c 'fisher add jethrokuan/z'
+fish -c 'fisher install jethrokuan/z'
 
 echo ===== ghq ==
-fish -c 'fisher add decors/fish-ghq'
+fish -c 'fisher install decors/fish-ghq'
