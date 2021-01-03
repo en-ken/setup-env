@@ -57,17 +57,21 @@ sudo apt install -y build-essential
 
 echo == linuxbrew ==
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-source ~/.bashrc
+. ~/.profile
 
 echo == anyenv ==
-brew install anyenv
-anyenv install --init
-anyenv install goenv
-anyenv install nodenv
+#brew install anyenv
+#anyenv install --init
+#anyenv install goenv
+#anyenv install nodenv
+
+echo == asdf ==
+brew install asdf
+asdf plugin add golang
+asdf plugin add python
+asdf plugin add nodejs
+asdf plugin add rust
 
 echo == fzf ==
 brew install fzf

@@ -8,17 +8,19 @@ if test -e "/home/linuxbrew/.linuxbrew/bin"
     set -x fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
 end
 
-set -x PATH $HOME/.anyenv/bin $PATH
-status --is-interactive; and source (env SHELL=fish anyenv init -|psub)
-source "$HOME/google-cloud-sdk/path.fish.inc"
+#anyenv
+#set -x PATH $HOME/.anyenv/bin $PATH
+#status --is-interactive; and source (env SHELL=fish anyenv init -|psub)
+
+#asdf
+source /home/linuxbrew/.linuxbrew/opt/asdf/asdf.fish
+
+#source "$HOME/google-cloud-sdk/path.fish.inc"
 eval (direnv hook fish)
 
 # GOPATH
-set -x GOROOT (goenv prefix)
-set -x GOPATH $HOME/go/(goenv versions --bare)
+set -x GOPATH $HOME/go
 set -x PATH "$GOPATH/bin" $PATH
-#eval (goenv init - | source)
-
 
 # SSH Agent
 set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
