@@ -19,6 +19,5 @@ code `
 --install-extension ms-vscode-remote.remote-ssh `
 --install-extension ms-vscode-remote.remote-ssh-edit `
 --install-extension ms-vscode-remote.remote-ssh-explorer `
---install-extension ms-vscode-remote.remote-wsl ` 
+--install-extension ms-vscode-remote.remote-wsl `
 --install-extension ms-vscode-remote.vscode-remote-extensionpack
-
