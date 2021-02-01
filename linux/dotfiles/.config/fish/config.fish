@@ -3,9 +3,11 @@ set -g theme_newline_cursor yes
 
 if test -e "$HOME/homebrew/bin"
     set -x  fish_user_paths  "$HOME/homebrew/bin" $fish_user_paths
+    set BREW_HOME $HOME/homebrew
 end
 if test -e "/home/linuxbrew/.linuxbrew/bin"
     set -x fish_user_paths /home/linuxbrew/.linuxbrew/bin $fish_user_paths
+    set BREW_HOME /home/linuxbrew/.linuxbrew
 end
 
 #anyenv
@@ -13,7 +15,7 @@ end
 #status --is-interactive; and source (env SHELL=fish anyenv init -|psub)
 
 #asdf
-source /home/linuxbrew/.linuxbrew/opt/asdf/asdf.fish
+source $BREW_HOME/opt/asdf/asdf.fish
 
 #source "$HOME/google-cloud-sdk/path.fish.inc"
 eval (direnv hook fish)
