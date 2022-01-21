@@ -37,3 +37,4 @@ set -x PATH $HOME/Library/Android/sdk/platform-tools $PATH
 
 # asdf must be at the BOTTOM
 source $BREW_HOME/opt/asdf/asdf.fish
+

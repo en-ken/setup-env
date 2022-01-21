@@ -18,6 +18,3 @@ asdf global python $PYTHON_VERSION
 asdf install rust $RUST_VERSION
 asdf global rust $RUST_VERSION
 
-# completions
-mkdir -p ~/.config/fish/completions && cp "$(brew --prefix asdf)/asdf.fish" ~/.config/fish/completions
-
